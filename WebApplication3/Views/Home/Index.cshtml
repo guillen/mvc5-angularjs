@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row" ng-controller="TaskController as task" >
+    <div class="col-md-4 position-fixed">
+        <div class="card">
+            <div class="card-header">
+                Tarea
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="inputName">Nombre</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="Nombre" ng-model="task.model.name">
+                </div>
+                <div class="form-group">
+                    <label for="inputDescription">Descripción</label>
+                    <input type="text" class="form-control" id="inputDescription" placeholder="Descripción" ng-model="task.model.description">
+                </div>
+                <div class="form-group">
+                    <label for="inputDate">Fecha</label>
+                    <input type="date" class="form-control" id="inputDate" placeholder="Fecha" ng-model="task.model.created_date">
+                </div>
+                <button type="button" class="btn btn-primary" ng-click="task.create()" ng-show="task.addMode">Agregar</button>
+                <button type="button" class="btn btn-primary" ng-click="task.edit()" ng-show="!task.addMode">Editar</button>
+                <button type="button" class="btn btn-danger" ng-click="task.remove()" ng-show="!task.addMode">Eliminar</button>
+                <button type="button" class="btn btn-info" ng-click="task.clear()" ng-show="!task.addMode">Limpiar</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 offset-md-4">
+        <h2 class="text-center">Tareas</h2>
+        <p class="text-center" ng-show="!task.list.length"><strong>No existen tareas aun</strong></p>
+        <table class="table table-striped" ng-show="task.list.length">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Fecha</th>
+                    <th colspan="2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-class="{'table-primary': l.Id == task.model.id }" ng-repeat="l in task.list">
+                    <td>{{ l.Id }}</td>
+                    <td>{{ l.Name }}</td>
+                    <td>{{ l.Description }}</td>
+                    <td>{{ l.CreatedDate | date }}</td>
+                    <td><button class="btn btn-primary" ng-click="task.select(l)">Seleccion</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
