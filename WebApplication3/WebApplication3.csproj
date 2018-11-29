@@ -113,6 +113,7 @@
   <ItemGroup>
     <Content Include="Content\index.min.js" />
     <Content Include="Content\styler.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Public\index.js" />
     <Content Include="Public\Tasks\controller.module.js" />
@@ -135,6 +136,7 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="package.json" />
+    <Content Include=".gitignore" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
